@@ -9,17 +9,17 @@ import {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-6xl">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24">
+      <div className="text-center mb-12 md:mb-16">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl md:text-5xl lg:text-6xl">
           Welcome to Topflight Supplement Store
         </h1>
-        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+        <p className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300 sm:mt-6 sm:text-lg md:text-xl">
           Please select your role to continue
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="w-[350px]">
+      <div className="grid grid-cols-1 gap-8 sm:max-w-md md:max-w-2xl md:grid-cols-2">
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Customer</CardTitle>
             <CardDescription>
@@ -30,7 +30,7 @@ export default function Home() {
             <Button className="w-full">Enter Storefront</Button>
           </CardContent>
         </Card>
-        <Card className="w-[350px]">
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Administrator</CardTitle>
             <CardDescription>
