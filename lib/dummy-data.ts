@@ -37,6 +37,26 @@ export const dummyProducts: Product[] = [
     image: "/multivitamin.jpg",
     bestSeller: false,
   },
+  {
+    id: "5",
+    name: "Fish Oil",
+    description: "Omega-3 fatty acids for heart and brain health.",
+    price: 24.99,
+    category: "Health",
+    image:
+      "https://images.unsplash.com/photo-1627463424854-e057563b79de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    bestSeller: true,
+  },
+  {
+    id: "6",
+    name: "Vitamin D3",
+    description: "Essential for bone health and immune support.",
+    price: 14.99,
+    category: "Health",
+    image:
+      "https://images.unsplash.com/photo-1628102490393-273f32938497?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    bestSeller: true,
+  },
 ];
 
 export const dummyOrders: Order[] = [

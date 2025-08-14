@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-muted text-muted-foreground w-full">
-      <div className="container flex flex-col items-center justify-between gap-6 py-8 px-4 sm:flex-row md:px-6">
+    <footer className="bg-muted text-muted-foreground flex justify-center">
+      <div className="container flex flex-col items-center justify-between gap-6 py-8 sm:flex-row">
         <div className="flex items-center gap-2">
           <MountainIcon className="h-6 w-6" />
           <span className="text-lg font-semibold">Topflight</span>

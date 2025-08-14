@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -6,8 +8,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useAppStore } from "@/store/app-store";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const setRole = useAppStore((state) => state.setRole);
+
+  const handleCustomerClick = () => {
+    setRole("customer");
+    router.push("/homepage");
+  };
+
+  const handleAdminClick = () => {
+    setRole("admin");
+    router.push("/admin/orders");
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24">
       <div className="text-center mb-12 md:mb-16">
@@ -27,7 +44,9 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button className="w-full">Enter Storefront</Button>
+            <Button className="w-full" onClick={handleCustomerClick}>
+              Enter Storefront
+            </Button>
           </CardContent>
         </Card>
         <Card className="w-full">
@@ -38,7 +57,11 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button className="w-full" variant="outline">
+            <Button
+              className="w-full"
+              variant="outline"
+              onClick={handleAdminClick}
+            >
               Enter Provider Portal
             </Button>
           </CardContent>
