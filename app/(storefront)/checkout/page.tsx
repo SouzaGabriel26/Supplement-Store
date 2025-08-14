@@ -123,7 +123,7 @@ export default function CheckoutPage() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="container py-8">
+      <div className="container py-8 mx-auto">
         <div className="mb-6">
           <Link
             href="/products"
@@ -151,7 +151,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="container py-8">
+    <div className="container py-8 mx-auto">
       <div className="mb-6">
         <Link
           href="/cart"
