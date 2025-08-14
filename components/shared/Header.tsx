@@ -1,5 +1,7 @@
 "use client";
 
+import { CartSheet } from "@/components/storefront/CartSheet";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -7,14 +9,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useCartStore } from "@/store/cart-store";
 import { MenuIcon, MountainIcon, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { useCartStore } from "@/store/cart-store";
-import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
 export function Header() {
   const cartItems = useCartStore((state) => state.items);
   const itemCount = cartItems.length;
+  const [cartOpen, setCartOpen] = useState(false);
 
   return (
     <header className="bg-background/95 fixed top-0 z-50 w-full border-b flex justify-center shadow-sm backdrop-blur-sm">
@@ -24,7 +27,11 @@ export function Header() {
           <span className="text-lg font-semibold">Topflight</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          <Link href="/products" className="hover:text-foreground" prefetch={false}>
+          <Link
+            href="/products"
+            className="hover:text-foreground"
+            prefetch={false}
+          >
             Products
           </Link>
           <Link href="#" className="hover:text-foreground" prefetch={false}>
@@ -35,17 +42,41 @@ export function Header() {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="/cart" className="relative" prefetch={false}>
+          {/* Cart - Sheet for md+ screens, direct link for mobile */}
+          <div className="hidden md:block">
+            <Sheet open={cartOpen} onOpenChange={setCartOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="relative">
+                  <ShoppingCart className="h-5 w-5" />
+                  <span className="sr-only">Cart</span>
+                  {itemCount > 0 && (
+                    <Badge className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
+                      {itemCount}
+                    </Badge>
+                  )}
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-96 p-0">
+                <SheetTitle className="hidden">Cart</SheetTitle>
+                <CartSheet open={cartOpen} onOpenChange={setCartOpen} />
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* Mobile cart link */}
+          <Link href="/cart" className="relative md:hidden" prefetch={false}>
             <Button variant="outline" size="icon">
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">Cart</span>
+              {itemCount > 0 && (
+                <Badge className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
+                  {itemCount}
+                </Badge>
+              )}
             </Button>
-            {itemCount > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs">
-                {itemCount}
-              </Badge>
-            )}
           </Link>
+
+          {/* Mobile menu */}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
@@ -61,7 +92,7 @@ export function Header() {
                   prefetch={false}
                 >
                   <MountainIcon className="h-6 w-6" />
-                  <SheetTitle>Topflight</SheetTitle>
+                  <span>Topflight</span>
                 </Link>
                 <nav className="grid gap-2">
                   <Link
