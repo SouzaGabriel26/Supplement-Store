@@ -8,7 +8,7 @@ export const dummyProducts: Product[] = [
     price: 49.99,
     category: "Protein",
     image:
-      "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=400&h=400&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1693996045300-521e9d08cabc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: true,
   },
   {
@@ -18,7 +18,7 @@ export const dummyProducts: Product[] = [
     price: 29.99,
     category: "Performance",
     image:
-      "https://images.unsplash.com/photo-1632212261559-08f365d91444?w=400&h=400&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1693996045435-af7c48b9cafb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: false,
   },
   {
@@ -28,7 +28,7 @@ export const dummyProducts: Product[] = [
     price: 39.99,
     category: "Performance",
     image:
-      "https://images.unsplash.com/photo-1599403483984-2ab66a27e462?w=400&h=400&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1704650311981-419f841421cc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: true,
   },
   {
@@ -38,7 +38,7 @@ export const dummyProducts: Product[] = [
     price: 19.99,
     category: "Health",
     image:
-      "https://images.unsplash.com/photo-1607958992120-13d55c7a2b0d?w=400&h=400&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1729704200257-f0a9265d4b1b?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: false,
   },
   {
@@ -48,7 +48,7 @@ export const dummyProducts: Product[] = [
     price: 24.99,
     category: "Health",
     image:
-      "https://images.unsplash.com/photo-1627463424854-e057563b79de?w=400&h=400&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1670850756988-a1943aa0e554?q=80&w=968&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: true,
   },
   {
@@ -58,7 +58,7 @@ export const dummyProducts: Product[] = [
     price: 14.99,
     category: "Health",
     image:
-      "https://images.unsplash.com/photo-1628102490393-273f32938497?w=400&h=400&fit=crop&crop=center",
+      "https://plus.unsplash.com/premium_photo-1709560425798-d9bb56dff78b?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bestSeller: true,
   },
 ];
