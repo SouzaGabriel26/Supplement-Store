@@ -10,10 +10,20 @@ import {
 } from "@/components/ui/card";
 import { useAppStore } from "@/store/app-store";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
-  const setRole = useAppStore((state) => state.setRole);
+  const { role, setRole } = useAppStore();
+
+  // Redirect if user is already logged in
+  useEffect(() => {
+    if (role === "customer") {
+      router.push("/homepage");
+    } else if (role === "admin") {
+      router.push("/admin/orders");
+    }
+  }, [role, router]);
 
   const handleCustomerClick = () => {
     setRole("customer");

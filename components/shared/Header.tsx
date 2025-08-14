@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { UserMenu } from "@/components/shared/UserMenu";
 import { useCartStore } from "@/store/cart-store";
 import { MenuIcon, MountainIcon, ShoppingCart } from "lucide-react";
 import Link from "next/link";
@@ -42,6 +43,9 @@ export function Header() {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
+          {/* User Menu */}
+          <UserMenu />
+          
           {/* Cart - Sheet for md+ screens, direct link for mobile */}
           <div className="hidden md:block">
             <Sheet open={cartOpen} onOpenChange={setCartOpen}>
@@ -124,6 +128,9 @@ export function Header() {
                     Contact
                   </Link>
                 </nav>
+                <div className="pt-4 border-t">
+                  <UserMenu />
+                </div>
               </div>
             </SheetContent>
           </Sheet>
