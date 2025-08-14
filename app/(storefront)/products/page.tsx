@@ -164,7 +164,7 @@ export default function AllProductsPage() {
   );
 
   return (
-    <div className="container py-8">
+    <div className="container py-8 mx-auto">
       <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
         <aside className="hidden md:block sticky top-24">
           <FilterSidebar />

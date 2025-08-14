@@ -1,12 +1,10 @@
 "use client";
 
-import { useOrderStore } from "@/store/order-store";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -22,18 +20,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useOrderStore } from "@/store/order-store";
 import {
+  Calendar,
   ChevronLeft,
   ChevronRight,
-  Search,
-  Filter,
   Eye,
-  Calendar,
-  User,
+  Filter,
   Package,
+  Search,
+  User,
 } from "lucide-react";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -70,7 +69,7 @@ export default function AllOrdersPage() {
     if (dateFilter !== "all") {
       const today = new Date();
       const orderDate = new Date();
-      
+
       switch (dateFilter) {
         case "today":
           filtered = filtered.filter(
@@ -199,7 +198,8 @@ export default function AllOrdersPage() {
               Orders ({filteredOrders.length})
             </CardTitle>
             <div className="text-sm text-muted-foreground">
-              Showing {startIndex + 1}-{Math.min(endIndex, filteredOrders.length)} of{" "}
+              Showing {startIndex + 1}-
+              {Math.min(endIndex, filteredOrders.length)} of{" "}
               {filteredOrders.length} orders
             </div>
           </div>
@@ -270,7 +270,7 @@ export default function AllOrdersPage() {
                           </Badge>
                         </TableCell>
                         <TableCell className="text-right">
-                          <Link href={`/admin/orders/${order.id}`}>
+                          <Link href={`/orders/${order.id}`}>
                             <Button variant="outline" size="sm">
                               <Eye className="h-4 w-4 mr-2" />
                               View
@@ -304,7 +304,9 @@ export default function AllOrdersPage() {
                         (page) => (
                           <Button
                             key={page}
-                            variant={currentPage === page ? "default" : "outline"}
+                            variant={
+                              currentPage === page ? "default" : "outline"
+                            }
                             size="sm"
                             onClick={() => setCurrentPage(page)}
                             className="w-8 h-8 p-0"

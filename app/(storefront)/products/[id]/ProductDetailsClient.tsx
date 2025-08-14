@@ -23,7 +23,7 @@ export function ProductDetailsClient({ product }: ProductDetailsClientProps) {
   };
 
   return (
-    <div className="container py-8">
+    <div className="container py-8 mx-auto">
       <div className="mb-6">
         <Link
           href="/products"

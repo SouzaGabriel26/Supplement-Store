@@ -1,82 +1,76 @@
 "use client";
 
+import { FaqAccordion } from "@/components/storefront/FaqAccordion";
+import { ProductCarousel } from "@/components/storefront/ProductCarousel";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { useAppStore } from "@/store/app-store";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
-  const { role, setRole } = useAppStore();
+  const { role } = useAppStore();
 
-  // Redirect if user is already logged in
+  // Redirect to role selection if no role is set
   useEffect(() => {
-    if (role === "customer") {
-      router.push("/homepage");
+    if (!role) {
+      router.push("/select-role");
     } else if (role === "admin") {
-      router.push("/admin/orders");
+      router.push("/orders");
     }
   }, [role, router]);
 
-  const handleCustomerClick = () => {
-    setRole("customer");
-    router.push("/homepage");
-  };
-
-  const handleAdminClick = () => {
-    setRole("admin");
-    router.push("/admin/orders");
-  };
+  // Don't render anything if redirecting
+  if (!role || role === "admin") {
+    return null;
+  }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24">
-      <div className="text-center mb-12 md:mb-16">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl md:text-5xl lg:text-6xl">
-          Welcome to Topflight Supplement Store
-        </h1>
-        <p className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300 sm:mt-6 sm:text-lg md:text-xl">
-          Please select your role to continue
-        </p>
-      </div>
-      <div className="grid grid-cols-1 gap-8 sm:max-w-md md:max-w-2xl md:grid-cols-2">
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>Customer</CardTitle>
-            <CardDescription>
-              Browse and purchase your favorite supplements.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button className="w-full" onClick={handleCustomerClick}>
-              Enter Storefront
-            </Button>
-          </CardContent>
-        </Card>
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle>Administrator</CardTitle>
-            <CardDescription>
-              Manage orders and view store analytics.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+    <main className="flex-1">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+        <div className="container">
+          <div className="flex flex-col items-center space-y-4 text-center">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+              Elevate Your Performance
+            </h1>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+              Discover our premium range of supplements, designed to help you
+              achieve your fitness goals.
+            </p>
             <Button
-              className="w-full"
-              variant="outline"
-              onClick={handleAdminClick}
+              size="lg"
+              onClick={() => router.push("/products")}
+              className="mt-4"
             >
-              Enter Provider Portal
+              Shop Now
             </Button>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
+            Best Sellers
+          </h2>
+          <ProductCarousel />
+          <div className="mt-12 text-center">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => router.push("/products")}
+            >
+              See All Products
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <div className="container">
+          <FaqAccordion />
+        </div>
+      </section>
     </main>
   );
 }

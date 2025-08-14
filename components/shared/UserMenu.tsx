@@ -24,17 +24,17 @@ export function UserMenu() {
     logout();
     clearCart();
     toast.success("Logged out successfully");
-    router.push("/");
+    router.push("/select-role");
   };
 
   const handleRoleSwitch = (newRole: "customer" | "admin") => {
     setRole(newRole);
 
     if (newRole === "customer") {
-      router.push("/homepage");
+      router.push("/");
       toast.success("Switched to Customer mode");
     } else {
-      router.push("/admin/orders");
+      router.push("/orders");
       toast.success("Switched to Admin mode");
     }
   };

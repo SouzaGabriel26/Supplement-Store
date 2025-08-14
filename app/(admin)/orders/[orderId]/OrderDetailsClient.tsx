@@ -94,7 +94,7 @@ export function OrderDetailsClient({ order }: OrderDetailsClientProps) {
     <div className="container py-8">
       <div className="mb-6">
         <Link
-          href="/admin/orders"
+          href="/orders"
           className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -264,7 +264,7 @@ export function OrderDetailsClient({ order }: OrderDetailsClientProps) {
 
                 <div className="space-y-3">
                   <Button
-                    onClick={() => router.push("/admin/orders")}
+                    onClick={() => router.push("/orders")}
                     variant="outline"
                     className="w-full"
                   >
@@ -277,12 +277,6 @@ export function OrderDetailsClient({ order }: OrderDetailsClientProps) {
                   >
                     Print Order
                   </Button>
-                </div>
-
-                <div className="text-sm text-muted-foreground space-y-1">
-                  <p>• Order placed on {formatDate(order.date)}</p>
-                  <p>• Current status: {order.status}</p>
-                  <p>• Customer: {order.shippingInfo.name}</p>
                 </div>
               </CardContent>
             </Card>
@@ -298,8 +292,8 @@ export function OrderDetailsClient({ order }: OrderDetailsClientProps) {
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <div className="bg-green-500 rounded-full p-1 mt-1">
-                      <CheckCircle className="h-3 w-3 text-white" />
+                    <div className="bg-green-500 text-white rounded-full p-1 mt-1">
+                      <CheckCircle className="h-3 w-3" />
                     </div>
                     <div className="flex-1">
                       <p className="font-medium text-sm">Order Placed</p>
@@ -311,8 +305,8 @@ export function OrderDetailsClient({ order }: OrderDetailsClientProps) {
 
                   {order.status !== "Pending" && (
                     <div className="flex items-start space-x-3">
-                      <div className="bg-blue-500 rounded-full p-1 mt-1">
-                        <Truck className="h-3 w-3 text-white" />
+                      <div className="bg-blue-500 text-white rounded-full p-1 mt-1">
+                        <Truck className="h-3 w-3" />
                       </div>
                       <div className="flex-1">
                         <p className="font-medium text-sm">Order Shipped</p>
@@ -328,8 +322,8 @@ export function OrderDetailsClient({ order }: OrderDetailsClientProps) {
 
                   {order.status === "Delivered" && (
                     <div className="flex items-start space-x-3">
-                      <div className="bg-green-500 rounded-full p-1 mt-1">
-                        <CheckCircle className="h-3 w-3 text-white" />
+                      <div className="bg-green-500 text-white rounded-full p-1 mt-1">
+                        <CheckCircle className="h-3 w-3" />
                       </div>
                       <div className="flex-1">
                         <p className="font-medium text-sm">Order Delivered</p>

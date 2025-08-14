@@ -1,19 +1,19 @@
-import { useOrderStore } from "@/store/order-store";
 import { notFound } from "next/navigation";
+import { useOrderStore } from "@/store/order-store";
 import { OrderDetailsClient } from "./OrderDetailsClient";
 
 interface OrderDetailsPageProps {
   params: Promise<{
-    id: string;
+    orderId: string;
   }>;
 }
 
 export default async function OrderDetailsPage({
   params,
 }: OrderDetailsPageProps) {
-  const { id } = await params;
+  const { orderId } = await params;
   const { orders } = useOrderStore.getState();
-  const order = orders.find((o) => o.id === id);
+  const order = orders.find((o) => o.id === orderId);
 
   if (!order) {
     notFound();
