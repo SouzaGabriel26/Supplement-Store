@@ -7,7 +7,8 @@ export const dummyProducts: Product[] = [
     description: "High-quality whey protein for muscle growth.",
     price: 49.99,
     category: "Protein",
-    image: "/protein.jpg",
+    image:
+      "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=400&h=400&fit=crop&crop=center",
     bestSeller: true,
   },
   {
@@ -16,7 +17,8 @@ export const dummyProducts: Product[] = [
     description: "Pure creatine for increased strength and performance.",
     price: 29.99,
     category: "Performance",
-    image: "/creatine.jpg",
+    image:
+      "https://images.unsplash.com/photo-1632212261559-08f365d91444?w=400&h=400&fit=crop&crop=center",
     bestSeller: false,
   },
   {
@@ -25,7 +27,8 @@ export const dummyProducts: Product[] = [
     description: "Explosive energy and focus for your workouts.",
     price: 39.99,
     category: "Performance",
-    image: "/pre-workout.jpg",
+    image:
+      "https://images.unsplash.com/photo-1599403483984-2ab66a27e462?w=400&h=400&fit=crop&crop=center",
     bestSeller: true,
   },
   {
@@ -34,7 +37,8 @@ export const dummyProducts: Product[] = [
     description: "Complete multivitamin for overall health.",
     price: 19.99,
     category: "Health",
-    image: "/multivitamin.jpg",
+    image:
+      "https://images.unsplash.com/photo-1607958992120-13d55c7a2b0d?w=400&h=400&fit=crop&crop=center",
     bestSeller: false,
   },
   {
@@ -44,7 +48,7 @@ export const dummyProducts: Product[] = [
     price: 24.99,
     category: "Health",
     image:
-      "https://images.unsplash.com/photo-1627463424854-e057563b79de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1627463424854-e057563b79de?w=400&h=400&fit=crop&crop=center",
     bestSeller: true,
   },
   {
@@ -54,7 +58,7 @@ export const dummyProducts: Product[] = [
     price: 14.99,
     category: "Health",
     image:
-      "https://images.unsplash.com/photo-1628102490393-273f32938497?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1628102490393-273f32938497?w=400&h=400&fit=crop&crop=center",
     bestSeller: true,
   },
 ];
